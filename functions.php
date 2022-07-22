@@ -30,6 +30,8 @@ function parent_editor_style_setup() {
 }
 add_action( 'after_setup_theme', 'parent_editor_style_setup' );
 
+require_once 'includes/mayecreate_shortcodes.php';
+
 /* NOTE: These functions are functions that don't need to be in the parent theme because not every site will have them. */
 function build_taxonomies() {
    register_taxonomy( 'faqcategory', 'menu', array( 'hierarchical' => true, 'label' => 'Categories', 'query_var' => true, 'rewrite' => true, 'show_in_rest' => true ) );
