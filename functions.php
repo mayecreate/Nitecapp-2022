@@ -1,5 +1,4 @@
 <?php
-
 // NOTE: To overwrite the script file in the parent theme uncomment this section and copy the mayecreate_sripts.js file into a folder called js in your child theme. Then edit that file.
 add_action('wp_enqueue_scripts', 'mayecreate_script_fix', 100);
 function mayecreate_script_fix()
@@ -19,7 +18,7 @@ function mayecreate_admin_scripts() {
 	if (is_page_template( 'page-admin-data.php' || 'page-moderator-home.php' )) { 
 		// Loads screenshot JavaScript files.
 		wp_enqueue_script('html2canvas', 'https://html2canvas.hertzen.com/dist/html2canvas.min.js', array('jquery'),'3.0.0', true );
-		wp_enqueue_script('canvas2image', get_template_directory_uri() . '/js/canvas2image.js', array('jquery'),'3.0.0', true );
+		wp_enqueue_script('canvas2image', get_stylesheet_directory_uri() . '/js/canvas2image.js', array('jquery'),'3.0.0', true );
 	}
 
 }
