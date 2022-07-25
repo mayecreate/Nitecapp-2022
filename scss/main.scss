@@ -262,7 +262,9 @@ ol li::before {
 	color: vars.$white;
 	text-align: center;
 }
-
+body #cookie-notice {
+	background: rgba(255,255,255,.9) !important; 
+}
 /*BODY
 ============================ */
 #page {
