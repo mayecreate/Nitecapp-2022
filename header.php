@@ -55,6 +55,10 @@
 
 <?php wp_head(); ?>
     
+<?php $ga_tag = (get_field('ga_tag', 'option')); ?>
+<?php if ($google_font_embed_links) {
+echo $ga_tag;
+} ?>    
 
 <div id="skip"><a href="#content">Skip to Main Content</a></div>
 
