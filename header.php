@@ -12,7 +12,11 @@
  * MayeCreate Title
  * ==========================================================
  */
-
+if ( ! $desc && is_llms_private_area() ) {
+	
+	echo '<title>'. get_bloginfo( 'name' ) .' | Discussion</title>';
+	
+} else {
 	echo '<title>';
 	
 	/* Print the <title> tag based on what is being viewed. */
@@ -33,9 +37,11 @@
 		echo ' | ' . sprintf( __( 'Page %s', 'skematik' ), max( $paged, $page ) );
 	
 	echo '</title>';
+}
 ?>
-
-<?php mayecreate_facebook_opengraph(); ?>	
+<?php if ((get_theme_mod('facebook_opengraph', 'not-include') == 'include') && !is_llms_private_area() ) { 
+		mayecreate_facebook_opengraph();
+} ?>
 
 
 <link rel="profile" href="http://gmpg.org/xfn/11" />
@@ -58,7 +64,7 @@
 <?php $ga_tag = (get_field('ga_tag', 'option')); ?>
 <?php if ($google_font_embed_links) {
 echo $ga_tag;
-} ?>    
+} ?>
 
 <div id="skip"><a href="#content">Skip to Main Content</a></div>
 

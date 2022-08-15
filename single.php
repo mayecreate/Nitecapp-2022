@@ -13,8 +13,9 @@ get_header(); ?>
     
                 <?php if (have_posts()) : ?>
                 <?php while (have_posts()) : the_post(); ?>
-            
-                  
+					<?php if (!is_llms_private_area()) { ?>
+						<?php echo do_shortcode( '[llms_pa_info title="Moderator Discussion" latest="true" unread_posts="false" unread_comments="false"]' ); ?>
+					<?php } ?>
                        <?php the_content(); ?>
                 
                 <?php endwhile; ?>

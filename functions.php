@@ -1,4 +1,5 @@
 <?php
+
 // NOTE: To overwrite the script file in the parent theme uncomment this section and copy the mayecreate_sripts.js file into a folder called js in your child theme. Then edit that file.
 add_action('wp_enqueue_scripts', 'mayecreate_script_fix', 100);
 function mayecreate_script_fix()
@@ -23,6 +24,7 @@ function mayecreate_admin_scripts() {
 
 }
 add_action('wp_enqueue_scripts', 'mayecreate_admin_scripts');
+
 function parent_editor_style_setup() {
 	// Add support for editor styles.
 	add_editor_style(  get_template_directory_uri().'/css/main.min.css' );
@@ -30,6 +32,25 @@ function parent_editor_style_setup() {
 add_action( 'after_setup_theme', 'parent_editor_style_setup' );
 
 require_once 'includes/mayecreate_shortcodes.php';
+
+$set_items_to_one_column = (get_field('set_items_to_one_column', 'option'));
+if ($set_items_to_one_column == "Yes") {
+
+	add_action( 'wp_enqueue_scripts', 'mc_enqueue_column_styles', PHP_INT_MAX);
+	function mc_enqueue_column_styles() {
+		wp_enqueue_style( 'column-style', get_stylesheet_directory_uri().'/css/single_column.css' );
+	}
+ 
+}
+$additional_css = (get_field('additional_css', 'option'));
+if ($additional_css) {
+
+	add_action( 'wp_enqueue_scripts', 'mc_enqueue_additional_css_styles', PHP_INT_MAX);
+	function mc_enqueue_additional_css_styles() {
+		require_once 'css/additional_css.php';
+	}
+
+}
 
 /* NOTE: These functions are functions that don't need to be in the parent theme because not every site will have them. */
 function build_taxonomies() {
