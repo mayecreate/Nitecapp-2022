@@ -395,7 +395,12 @@ add_filter( 'llms_pa_post_roles_can_discuss', 'my_llms_discuss_role' );
  * @return   int
  */
 function my_llms_loop_cols( $cols ) {
-	return 3; // change this to be the number of columns you want
+	$set_items_to_one_column = (get_field('set_items_to_one_column', 'option'));
+	if ($set_items_to_one_column == "Yes") {
+		return 1; // change this to be the number of columns you want
+	} else {		
+		return 3; // change this to be the number of columns you want
+	}
 }
 add_filter( 'lifterlms_loop_columns', 'my_llms_loop_cols' );
 

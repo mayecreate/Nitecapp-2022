@@ -9,3 +9,7 @@
 .frm6, .frm_half, .frm_form_field.frm_three_fifths, .frm_form_field.frm6, .frm_submit.frm6, .frm_form_field.frm_left_half, .frm_form_field.frm_right_half, .frm_form_field.frm_first_half, .frm_form_field.frm_last_half, .frm_form_field.frm_half, .frm_submit.frm_half {
     grid-column: span 12 / span 12;
 }
+.llms-loop-item-content .llms-loop-link {
+	max-width: 460px;
+	margin: 0 auto 30px;
+}
