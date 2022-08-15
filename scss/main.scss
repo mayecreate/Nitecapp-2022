@@ -411,6 +411,31 @@ body #cookie-notice {
 .completed {
 	color: child_vars.$green;
 }
+
+/* MODERATOR NOTE
+===================================== */
+.mod_note_wrapper {
+    padding: 40px;
+    border-radius: 50px;
+    border: 5px solid child_vars.$gold;
+    background: child_vars.$custom_grey;
+    color: vars.$white;
+    margin-bottom: 30px;
+}
+.mod_note_wrapper * {
+    color: vars.$white;
+}
+.mod_note_wrapper h2, .mod_note_wrapper h3 {
+    color: child_vars.$basically_white;
+}
+.mod_note_wrapper h2 i {
+    margin-right: 10px;
+    color: child_vars.$basically_white; 
+}
+.mod_graph_wrapper li {
+    list-style: none !important;
+}
+
 /* SLEEP DIARY FORM
 ====================================  */
 .intro-user #frm_field_244_container, .intro-user #frm_field_253_container, .intro-user #frm_field_275_container, .intro-user #frm_field_262_container, .intro-user #frm_field_283_container {

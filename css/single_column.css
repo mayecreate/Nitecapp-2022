@@ -1,0 +1,11 @@
+.llms-lesson-preview, .llms-course-navigation .llms-prev-lesson, .llms-course-navigation .llms-back-to-course, .llms-lesson-preview .llms-lesson-title, .llms-lesson-preview .llms-main, .llms-course-navigation .llms-next-lesson, .llms-course-navigation .llms-prev-lesson+.llms-back-to-course {
+	display: block;
+	width: 100%;
+	float: none;
+	margin-left: 0;
+	margin-right: 0;
+	margin-bottom: 15px;
+}
+.frm6, .frm_half, .frm_form_field.frm_three_fifths, .frm_form_field.frm6, .frm_submit.frm6, .frm_form_field.frm_left_half, .frm_form_field.frm_right_half, .frm_form_field.frm_first_half, .frm_form_field.frm_last_half, .frm_form_field.frm_half, .frm_submit.frm_half {
+    grid-column: span 12 / span 12;
+}
