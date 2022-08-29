@@ -38,8 +38,8 @@ get_header(); ?>
 
                     ?>
 
-                    <h2 class="collapseomatic" title="<?php the_title(); ?>" id="<?php the_ID(); ?>"><?php the_title(); ?></h2>
-                    <div id="target-<?php the_ID(); ?>" class="collapseomatic_content force_content_collapse"><?php the_content(); ?></div>
+                    <h2 class="collapse-title collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#target-<?php the_ID(); ?>" aria-expanded="false" aria-controls="target-<?php the_ID(); ?>" title="Expand to learn <?php the_title(); ?>"><?php the_title(); ?></h2>
+                    <div id="target-<?php the_ID(); ?>" class="collapse-content collapse"><?php the_content(); ?></div>
                     <div class="divider"></div>
 
                     <?php } // end the loop ?>
@@ -64,8 +64,8 @@ get_header(); ?>
 
                     ?>
 
-                    <h2 class="collapseomatic" title="<?php the_title(); ?>" id="<?php the_ID(); ?>"><?php the_title(); ?></h2>
-                    <div id="target-<?php the_ID(); ?>" class="collapseomatic_content force_content_collapse"><?php the_content(); ?></div>
+                    <h2 class="collapse-title collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#target-<?php the_ID(); ?>" aria-expanded="false" aria-controls="target-<?php the_ID(); ?>" title="Expand to learn <?php the_title(); ?>"><?php the_title(); ?></h2>
+                    <div id="target-<?php the_ID(); ?>" class="collapse-content collapse"><?php the_content(); ?></div>
                     <div class="divider"></div>
 
                     <?php } // end the loop ?>

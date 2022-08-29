@@ -425,6 +425,15 @@ function my_custom_fonts() {
   </style>';
 }
 
+// remove dashicons
+function wpdocs_dequeue_dashicon() {
+	if (current_user_can( 'update_core' )) {
+	    return;
+	}
+	wp_deregister_style('dashicons');
+}
+add_action( 'wp_enqueue_scripts', 'wpdocs_dequeue_dashicon' );
+
 /*add_filter('frm_validate_field_entry', 'calculate_time', 11, 3);
 function calculate_time($errors, $field, $value){
     if($field->id == 333){ //Time In Bed
