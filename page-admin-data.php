@@ -67,11 +67,10 @@ get_header(); ?>
 			<div class="row">
 				<div class="col-md-12">
 					<h2>Sleep Diary Status</h2>
-					<h3 class="collapseomatic" title="Sleep Diary Status" id="sleep">Expand sleep diary status.</h3>
-					<h3 id="swap-sleep" style="display: none;">Collapse sleep diary status.</h3>
+					<h3 class="collapse-title collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#target-sleep" aria-expanded="false" aria-controls="target-sleep" title="Sleep Diary Status" id="sleep">View Sleep Diary Status.</h3>
 				</div>
 			</div>
-			<div class="row collapseomatic_content" id="target-sleep">
+			<div class="row collapse-content collapse" id="target-sleep">
 				<?php foreach( $users as $user ): ?>
 					<div class="col-md-6">
 						<?php $today = date('Y-m-d'); $yesterday = date('Y-m-d',strtotime("-1 days")); ?>
@@ -94,7 +93,7 @@ get_header(); ?>
 				<div class="col-md-12">
 					<h2>Select the participant you wish to view data for:</h2>
 					<form method="post" id="adduser" action="<?php the_permalink(); ?>">
-						<select class="volunteers-list" name="current_selected_user">
+						<select aria-expanded="false" class="volunteers-list" name="current_selected_user">
 							<?php if (($current_selected_user != 'none') || ($current_selected_user != '') || ($current_selected_user != '0')) { ?>
 							<option value="<?php $current_selected_user; ?>">Current Selected Participant: <?php echo $selected_display; ?></option>
 							<option value="none">View All</option>
@@ -109,7 +108,7 @@ get_header(); ?>
 						</select>
 						<p class="form-submit">
 							<?php echo $referer; ?>
-							<input name="updateuser" type="submit" id="updateuser" class="submit button" value="<?php _e('Update Selected Participant', 'profile'); ?>" />
+							<input role="button" name="updateuser" type="submit" id="updateuser" class="submit button" value="<?php _e('Update Selected Participant', 'profile'); ?>" />
 							<?php wp_nonce_field( 'update-user' ) ?>
 							<input name="action" type="hidden" id="action" value="update-user" />
 						</p><!-- .form-submit -->

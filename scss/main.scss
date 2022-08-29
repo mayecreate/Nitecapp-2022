@@ -15,6 +15,10 @@ a:hover, a:active, a:focus{
 	text-decoration: underline !important;
 }
 
+:focus {
+	border: 2px solid black;
+}
+
 
 /* TYPOGRAPHY: HEADINGS
 ==========================================  */
@@ -127,7 +131,7 @@ ol li::before {
 }
 
 .llms-lesson-preview .llms-lesson-link, .llms-lesson-preview .llms-lesson-link:visited {
-	background: child_vars.$light_blue;
+	background: child_vars.$ada_teal;
 	color: vars.$white;
 }
 
@@ -325,21 +329,23 @@ body #cookie-notice {
 .wp-block-kadence-infobox {
 	margin-bottom: 20px;
 }
-.collapseomatic { 
-    background: url(../img/faq_closed.png) 0 0 no-repeat;
+.colomat-close, .collapse-title {
+    background: url(../img/faq_open.png) 0 0 no-repeat;
+    color: child_vars.$light_blue;
+    text-decoration: none;
     padding: 10px 0 10px 100px;
     min-height: 75px;
     font-size: clamp(2.5rem, 2.2rem + 1vw, vars.$header_4_font_size);
 }
-.colomat-hover {
+.collapseomatic, .collapse-title.collapsed { 
+    background: url(../img/faq_closed.png) 0 0 no-repeat;
+	color: child_vars.$dark_blue;
+} 
+.colomat-hover, .collapse-title:hover {
     background: url(../img/faq_hover.png) 0 0 no-repeat;
     color: child_vars.$light_blue;
     text-decoration: none;
-}
-.colomat-close {
-    background: url(../img/faq_open.png) 0 0 no-repeat;
-    color: child_vars.$light_blue;
-    text-decoration: none;
+	cursor: pointer;
 }
 .course_sidebar_wrapper {
 	position: -webkit-sticky; 
@@ -845,7 +851,7 @@ body #cookie-notice {
                                     font-size: 28px;
                                     font-size: 2.8rem;
                                 }
-								.collapseomatic {
+								.collapseomatic, .collapse-title {
 									font-size: vars.$header_3_font_size;
 								}
 								.llms-loop-item-content h4 {

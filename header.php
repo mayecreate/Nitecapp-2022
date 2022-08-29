@@ -2,7 +2,7 @@
 <html <?php language_attributes(); ?>>
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
 
 
 <?php 
@@ -109,10 +109,10 @@ echo $ga_tag;
 <?php if (is_front_page()){ ?>
 
 	<div id="internalfeatured" class="home_internalfeatured" style="background-image: url('<?php echo $default_header_image; ?>')">
-		<div id="star_tr"></div>
-		<div id="star_tl"></div>
-		<div id="star_br"></div>
-		<div id="star_bl"></div>
+		<div aria-hidden="true" id="star_tr"></div>
+		<div aria-hidden="true" id="star_tl"></div>
+		<div aria-hidden="true" id="star_br"></div>
+		<div aria-hidden="true" id="star_bl"></div>
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-sm-12 col-md-10 col-md-push-1 page-header">
@@ -131,15 +131,21 @@ echo $ga_tag;
 
 <?php } else { ?>
 		<div id="internalfeatured" style="background-image: url('<?php echo $default_header_image; ?>')">
-			<div id="star_tr"></div>
-			<div id="star_tl"></div>
-			<div id="star_br"></div>
-			<div id="star_bl"></div>
+			<div aria-hidden="true" id="star_tr"></div>
+			<div aria-hidden="true" id="star_tl"></div>
+			<div aria-hidden="true" id="star_br"></div>
+			<div aria-hidden="true" id="star_bl"></div>
 			<div class="container">
 				<?php if (is_home()) { ?>
 					<div class="row">
 						<div class="col-md-12 page-header">
 							<h1 class="entry-title">Blog</h1>
+						</div>
+					</div>
+				<?php } elseif (is_courses()) { ?>
+					<div class="row">
+						<div class="col-md-12 page-header">
+							&nbsp;
 						</div>
 					</div>
 				<?php } elseif (is_archive()) { ?>
@@ -184,7 +190,7 @@ echo $ga_tag;
 										printf( __( 'WK People: %s', 'skematik' ), '<span>' . single_cat_title( '', false ) . '</span>' );
 
 									} else {
-										printf( __( '%s', 'skematik' ), '<span>' . single_cat_title( '', false ) . '</span>' );
+										echo "Archive";
 
 									}
 									?>
