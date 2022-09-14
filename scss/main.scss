@@ -478,7 +478,10 @@ body #cookie-notice {
 #menu-item-2022 {
     display: none !important;
 }
-.lesson-3-user #menu-item-2022, .lesson-4-user #menu-item-2022, .administrator #menu-item-2022 {
+.lesson-3-user #menu-item-2022, .lesson-4-user #menu-item-2022 {
+    display: inline-block !important;
+}
+.administrator #menu-item-2022 {
     display: block !important;
 }
 /*CARE GIVER STUFF
