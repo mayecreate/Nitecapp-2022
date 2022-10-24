@@ -11,7 +11,11 @@
     </form> -->
     
 <?php if(is_user_logged_in() && current_user_can('administrator')) {
-    $theme_location = 'mobile-menu-admin';
+	$theme_location = 'mobile-menu-admin';
+} elseif(current_user_can('instructors_assistant')) {
+	$theme_location = 'main-menu-mod';
+} elseif(current_user_can('care-giver')) {
+	$theme_location = 'mobile-menu-cargiver';
 } elseif(is_user_logged_in()) {
     $theme_location = 'mobile-menu-patient';
 } else {
