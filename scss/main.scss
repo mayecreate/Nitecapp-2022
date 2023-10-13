@@ -660,6 +660,12 @@ body #cookie-notice {
 	margin: 0 auto 10px auto;
 	display: block;
 }
+.mejs-container, .mejs-container .mejs-controls, .mejs-embed, .mejs-embed body, .audioalbum, .audioheading, .track {
+    background: vars.$secondary_color !important;
+}
+.songtitle {
+    display: none !important;
+}
     /* Small devices (576px and up). This is anything labeled "sm" in bootstrap. */
     @media (min-width: 576px) {
         
