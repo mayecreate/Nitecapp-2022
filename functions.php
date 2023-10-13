@@ -6,15 +6,29 @@ function mayecreate_script_fix()
 {
     wp_dequeue_script('mayecreatejs');
     wp_dequeue_script('mc-block-editor-script');
-    wp_enqueue_script( 'mc-block-editor-script_child', get_stylesheet_directory_uri() . '/js/mayecreate_scripts.js', false, '1.0', 'all' );
     wp_enqueue_script('child_theme_mayecreatejs', get_stylesheet_directory_uri().'/js/mayecreate_scripts.js', array('jquery'));
 }
+function jsforwpblocks_editor_scripts_child() {
+	
+  // Make paths variables so we don't write em twice
+	
+  $blockPath = '/js/mayecreate_scripts.js';
+  //$editorStylePath = '/style.css'; 
+	
+  // Enqueue the bundled block JS file
+  wp_enqueue_script( 'mc-block-editor-script_child', get_stylesheet_directory_uri() . '/js/mayecreate_scripts.js', false, '1.0', 'all' );
+
+}
+// Hook scripts function into block editor hook
+add_action( 'enqueue_block_editor_assets', 'jsforwpblocks_editor_scripts_child' );
 
 add_action( 'wp_enqueue_scripts', 'mc_enqueue_child_theme_styles', PHP_INT_MAX);
 function mc_enqueue_child_theme_styles() {
     wp_enqueue_style( 'parent-style', get_template_directory_uri().'/css/main.min.css' );
     wp_enqueue_style( 'child-style', get_stylesheet_directory_uri().'/css/main.min.css', array('parent-style')  );
 }
+
+
 function mayecreate_admin_scripts() {
 	if (is_page_template( 'page-admin-data.php' || 'page-moderator-home.php' )) { 
 		// Loads screenshot JavaScript files.
@@ -32,6 +46,8 @@ function parent_editor_style_setup() {
 add_action( 'after_setup_theme', 'parent_editor_style_setup' );
 
 require_once 'includes/mayecreate_shortcodes.php';
+
+require_once 'includes/mayecreate_blocks_child.php';
 
 $set_items_to_one_column = (get_field('set_items_to_one_column', 'option'));
 if ($set_items_to_one_column == "Yes") {
