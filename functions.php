@@ -53,10 +53,10 @@ if ($additional_css) {
 }
 
 /* NOTE: These functions are functions that don't need to be in the parent theme because not every site will have them. */
-function build_taxonomies() {
+function build_taxonomies_child() {
    register_taxonomy( 'faqcategory', 'menu', array( 'hierarchical' => true, 'label' => 'Categories', 'query_var' => true, 'rewrite' => true, 'show_in_rest' => true ) );
 }
-add_action( 'init', 'build_taxonomies', 0 );
+add_action( 'init', 'build_taxonomies_child', 0 );
 
 function mayecreate_create_post_type_child() {
 	
