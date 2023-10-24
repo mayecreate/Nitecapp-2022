@@ -444,30 +444,30 @@ body #cookie-notice {
 
 /* SLEEP DIARY FORM
 ====================================  */
-.intro-user #frm_field_244_container, .intro-user #frm_field_253_container, .intro-user #frm_field_275_container, .intro-user #frm_field_262_container, .intro-user #frm_field_283_container {
-    display: none !important;
-}
-.lesson-1-user #frm_field_275_container, .lesson-1-user #frm_field_262_container, .lesson-1-user #frm_field_283_container {
-    display: none !important;
-}
-.lesson-2-user #frm_field_283_container {
-    display: none !important;
-}
-.llms-loop-item.post-1646, .llms-loop-item.post-1549, .llms-loop-item.post-1702, .llms-loop-item.post-1743 {
-    display: none;
-}
-.lesson-1-user .llms-loop-item.post-1646 {
-    display: block;
-}
-.lesson-2-user .llms-loop-item.post-1646, .lesson-2-user .llms-loop-item.post-1549 {
-    display: block;
-}
-.lesson-3-user .llms-loop-item.post-1646, .lesson-3-user .llms-loop-item.post-1549, .lesson-3-user .llms-loop-item.post-1702 {
-    display: block;
-}
-.lesson-4-user .llms-loop-item.post-1646, .lesson-4-user .llms-loop-item.post-1549, .lesson-4-user .llms-loop-item.post-1702, .lesson-4-user .llms-loop-item.post-1743 {
-    display: block;
-}
+// .intro-user #frm_field_244_container, .intro-user #frm_field_253_container, .intro-user #frm_field_275_container, .intro-user #frm_field_262_container, .intro-user #frm_field_283_container {
+//     display: none !important;
+// }
+// .lesson-1-user #frm_field_275_container, .lesson-1-user #frm_field_262_container, .lesson-1-user #frm_field_283_container {
+//     display: none !important;
+// }
+// .lesson-2-user #frm_field_283_container {
+//     display: none !important;
+// }
+// .llms-loop-item.post-1646, .llms-loop-item.post-1549, .llms-loop-item.post-1702, .llms-loop-item.post-1743 {
+//     display: none;
+// }
+// .lesson-1-user .llms-loop-item.post-1646 {
+//     display: block;
+// }
+// .lesson-2-user .llms-loop-item.post-1646, .lesson-2-user .llms-loop-item.post-1549 {
+//     display: block;
+// }
+// .lesson-3-user .llms-loop-item.post-1646, .lesson-3-user .llms-loop-item.post-1549, .lesson-3-user .llms-loop-item.post-1702 {
+//     display: block;
+// }
+// .lesson-4-user .llms-loop-item.post-1646, .lesson-4-user .llms-loop-item.post-1549, .lesson-4-user .llms-loop-item.post-1702, .lesson-4-user .llms-loop-item.post-1743 {
+//     display: block;
+// }
 .frm_style_treatment-quiz-style.with_frm_style .frm_form_field.frm_html_container, .frm_style_treatment-quiz-style.with_frm_style .frm_primary_label {
     color: #333;
     font-family: 'Source Sans Pro', sans-serif;
@@ -746,6 +746,9 @@ body #cookie-notice {
 
             /* Large devices (desktops, 992px and up). This is anything labeled "lg" in bootstrap. */
             @media (min-width: 992px) {
+				#drawer-menu {
+					display: none !important;
+				}
                 .page-header {
                     padding: 60px 0;
                 }
