@@ -29,9 +29,7 @@
 
 </div><!-- // pagewrapper -->
 
-
-
-
+<?php get_template_part('partials/content','mobileMenu'); ?>
 <script type="text/javascript">
 var emitterSize = 20,
 dotQuantity = 40,
@@ -170,7 +168,6 @@ function setup() {
 
 setup();
 </script>
-<?php get_template_part('partials/content','mobileMenu'); ?>
 <?php wp_footer(); ?>
 
 <?php mayecreate_DBD(); ?>
