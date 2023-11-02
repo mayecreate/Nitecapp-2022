@@ -139,7 +139,7 @@ ol li::before {
 	background: child_vars.$dark_blue;
 }
 
-.llms-button-primary {
+.llms-button-primary, .llms-button-action {
 	background: child_vars.$gold;
 	color: vars.$base_color;
 	font-weight: 700;
@@ -147,7 +147,7 @@ ol li::before {
 	font-size: 2rem;
 }
 
-.llms-button-primary:hover {
+.llms-button-primary:hover, .llms-button-action:hover {
 	background: child_vars.$dark_blue;
 	color: vars.$white;
 }
@@ -665,6 +665,16 @@ body #cookie-notice {
 }
 .songtitle {
     display: none !important;
+}
+.single-llms_quiz ul, .single-llms_quiz ul li {
+	list-style: none !important;
+}
+.single-llms_quiz ol li::before {
+	display: none !important;
+}
+.single-llms_quiz .llms-quiz-results .llms-quiz-results-history {
+	float: none !important;
+	clear: both;
 }
     /* Small devices (576px and up). This is anything labeled "sm" in bootstrap. */
     @media (min-width: 576px) {

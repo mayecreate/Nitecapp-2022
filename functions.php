@@ -494,3 +494,27 @@ function calculate_time_part_2($errors, $field, $value){
     }
     return $errors;
 }*/
+
+add_filter( 'gettext', 'mc_filter_text', 0, 3);
+
+/**
+ * Filter Text.
+ * 
+ * Filter text by existing text and domain.
+ *
+ * @param string $translated_text   The translated version of the string.
+ * @param string $untranslated_text The untranslated version of the string.
+ * @param string $domain            The text domain of the i18n function.
+ */
+function mc_filter_text( $translated_text, $untranslated_text, $domain ) {
+    if (  'Take Quiz' === $untranslated_text && 'lifterlms' === $domain ) {
+        return esc_html__( 'Play Game', 'lifterlms' );
+    }
+    if (  'Start Quiz' === $untranslated_text && 'lifterlms' === $domain ) {
+        return esc_html__( 'Start Game', 'lifterlms' );
+    }
+    if (  'Quiz Information' === $untranslated_text && 'lifterlms' === $domain ) {
+        return esc_html__( 'Game Information', 'lifterlms' );
+    }
+    return $translated_text;
+}
