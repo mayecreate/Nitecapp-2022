@@ -152,6 +152,11 @@ function my_llms_theme_support(){
 add_action( 'after_setup_theme', 'my_llms_theme_support' );
 
 remove_action( 'lifterlms_single_course_after_summary', 'lifterlms_template_single_prerequisites', 55 );
+
+remove_action('lifterlms_after_loop_item_title','lifterlms_template_loop_author', 10);
+remove_action('lifterlms_after_loop_item_title','lifterlms_template_loop_difficulty', 20);
+remove_action('lifterlms_after_loop_item_title','lifterlms_template_loop_lesson_count', 22);
+
 add_action( 'lifterlms_single_course_before_summary', 'lifterlms_template_single_prerequisites', 10 );
 
 add_action( 'lifterlms_single_course_before_summary', 'add_mod_notes', 11 );
