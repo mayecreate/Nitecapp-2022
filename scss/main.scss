@@ -220,8 +220,8 @@ ol li::before {
 	top: 0;
 	right: 0;
 	height: 100%;
-	width: 50%;
-	max-width: 619px;
+	width: 50%; 
+	max-width: 619px; 
 	z-index: 1;
 	background: url(../img/stars_tr.png) top right no-repeat;
 	background-size: contain;
@@ -454,7 +454,7 @@ body #cookie-notice {
 //     display: none !important;
 // }
 // .llms-loop-item.post-1646, .llms-loop-item.post-1549, .llms-loop-item.post-1702, .llms-loop-item.post-1743 {
-//     display: none;
+//     display: none; 
 // }
 // .lesson-1-user .llms-loop-item.post-1646 {
 //     display: block;
@@ -675,6 +675,16 @@ body #cookie-notice {
 .single-llms_quiz .llms-quiz-results .llms-quiz-results-history {
 	float: none !important;
 	clear: both;
+}
+.llms-quiz-results-history, .llms-quiz-results-aside, .llms-sd-nav, .llms-notification-list li:before {
+	display: none !important;
+} 
+.single-llms_quiz .llms-quiz-results .llms-quiz-results-main {
+	width: 100%;
+	float: none; 
+}
+.llms-pagination ul li {
+	list-style: none;
 }
     /* Small devices (576px and up). This is anything labeled "sm" in bootstrap. */
     @media (min-width: 576px) {
