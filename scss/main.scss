@@ -1,6 +1,9 @@
 @use '../../mayecreate-theme-22/scss/vars';
 @use 'child_vars';
 
+.margin_bottom_0 {
+	margin-bottom: 0 !important;
+}
 /* LINKS
 ==========================================	*/
 
@@ -685,6 +688,58 @@ body #cookie-notice {
 }
 .llms-pagination ul li {
 	list-style: none;
+}
+.navigation_notification i {
+	position: relative;
+	display: block;
+}
+.navigation_notification.unread i:after {
+	display: block;
+	content: '';
+	position: absolute;
+	top: -8px;
+	right: -8px;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	background: child_vars.$red;
+}
+.mod_note_wrapper {
+	position: relative;
+}
+.mod_note_wrapper.unread i {
+	display: block;
+	content: '';
+	position: absolute; 
+	padding: 16px;
+	top: -20px;
+	left: -20px;
+	border-radius: 50%;
+	background: child_vars.$gold;
+}
+.mod_note_wrapper a:link, .mod_note_wrapper a:visited {
+	color: vars.$white;
+}
+.mod_note_wrapper a:hover, .mod_note_wrapper a:active {
+	color: child_vars.$yellow;
+}
+.comment-respond .logged-in-as {
+	display: none;
+}
+.comment-respond label {
+	display: block;
+}
+.comment-respond #comment {
+	width: 100%;
+}
+ol.commentlist {
+	margin-left: 0;
+}
+ol.commentlist ul.children {
+	margin-left: 30px;
+}
+ol.commentlist li::before {
+	display: none;
 }
     /* Small devices (576px and up). This is anything labeled "sm" in bootstrap. */
     @media (min-width: 576px) {

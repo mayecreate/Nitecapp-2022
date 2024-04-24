@@ -50,7 +50,9 @@ if ( ! $desc && is_llms_private_area() ) {
 <!-- Fonts -->
 	
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.2/css/all.css" crossorigin="anonymous">
+<script src="https://kit.fontawesome.com/539078998e.js" crossorigin="anonymous" async></script>
 
 <?php $google_font_embed_links = (get_field('google_font_embed_links', 'option')); ?>
 <?php if ($google_font_embed_links) {
