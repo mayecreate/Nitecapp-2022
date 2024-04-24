@@ -112,7 +112,7 @@ function mayecreate_create_post_type_child() {
 			'public' => true,
 			'menu_position' => 10,
 			'rewrite' => array('slug' => 'moderator-note'),
-			'supports' => array('title','revisions','editor'),
+			'supports' => array('title','revisions','editor', 'author', 'comments'),
 			'menu_icon'         => 'dashicons-format-aside',
 			'show_in_rest' => true,
 			'has_archive' => true 
@@ -523,3 +523,21 @@ function mc_filter_text( $translated_text, $untranslated_text, $domain ) {
     }
     return $translated_text;
 }
+
+add_action('wp_head', function () {
+	$user_id = get_current_user_id();
+	# if user is logged in 
+	if (!empty($user_id)) {
+		$post_id = get_the_ID();
+		$user_read_post = get_user_meta($user_id, 'read_posts', true);
+		if (empty($user_read_post)) {
+			$user_read_post = array(); // if there is no read post 
+		}
+ 
+		if (!empty($post_id)) {
+			array_push($user_read_post, $post_id);
+		}
+		$user_read_post = array_unique($user_read_post);
+		update_user_meta($user_id, 'read_posts', $user_read_post);
+	}
+ });

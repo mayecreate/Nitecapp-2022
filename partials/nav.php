@@ -28,7 +28,44 @@
             </div>
         </div>
 <?php } ?>
-   
+<?php $user_id = get_current_user_id(); ?>
+<?php if (!empty($user_id)) { ?>
+	<?php $user_read_post_header = get_user_meta($user_id, 'read_posts', true); ?>
+	<?php //print_r($user_read_post_header); ?>
+	<?php // args
+	$args = array(
+	'posts_per_page'	=> -1,
+	'order'			=> 'DESC', // ASC = OLDEST EVENT FIRST, DESC= NEWEST EVENT FIRST 
+	'post_type' => 'moderator-notes',
+	'paged' => $paged,
+	'meta_query'    => array(
+		'relation'    => 'OR',
+		array(
+			'field'   => 'author',
+			'value'   => $user_ID,
+			'compare' => '==',
+		),
+		array(
+			'key'       => 'related_user',
+			'value'     => $user_id,
+			'compare'   => '=',
+		),
+	),
+	); ?>
+	<?php // query
+	$wp_query = new WP_Query( $args );
+	// loop
+	while( $wp_query->have_posts() ) { $wp_query->the_post(); ?>
+		<?php $post_ids []= get_the_ID(); ?>
+	<?php } // end the loop ?>
+	<?php wp_reset_query();?> 
+	<?php if ($post_ids != "") { $post_ids = $post_ids; } else { $post_ids = array(); }; ?>
+	<?php if (empty(array_diff($post_ids, $user_read_post_header))) { 
+		$unred_class = ""; 
+	} else { 
+		$unred_class = "unread"; 
+	} ?>
+<?php } ?>
 
 <div id="navbarBottom" class="navbar navbar-default ">
 	<div class="<?php echo $containerWidth; ?>" > 
@@ -81,9 +118,12 @@
 
 				<?php wp_nav_menu($topMenu); ?>
 				<?php if(is_user_logged_in() ) { ?>
-				<li><a href="<?php echo wp_logout_url(); ?>">Logout</a></li>
+					<li><a href="<?php echo wp_logout_url(); ?>">Logout</a></li>
+					<?php if (!empty($user_id)) { ?>
+						<li class="navigation_notification <?php echo $unred_class; ?>"><a href="<?php bloginfo('url'); ?>/messages/"><i class="fa-solid fa-bell"></i></a></li> 
+					<?php } ?>
 				<?php } else { ?>	
-				<li><a href="<?php bloginfo('url'); ?>/wp-admin/">Login</a></li>
+					<li><a href="<?php bloginfo('url'); ?>/wp-admin/">Login</a></li>
 				<?php } ?>
 			</ul>
 		</nav>
