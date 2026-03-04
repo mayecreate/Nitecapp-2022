@@ -365,11 +365,15 @@ body #cookie-notice {
 .llms-author {
 	display: none !important;
 }
-
+.llms-loop-item, .llms-lesson-preview {
+	border: 0 none;
+}
 .llms-loop-item a, .llms-loop-item a:link, .llms-loop-item a:visited {
 	text-decoration: none;
 }
-
+.llms-lesson-preview.is-free .llms-lesson-complete, .llms-lesson-preview.is-complete .llms-lesson-complete {
+	color: #fff;
+}
 .llms-loop-item-content {
 	padding: 10px 10px;
 	background: child_vars.$light_blue;
@@ -477,6 +481,13 @@ body #cookie-notice {
 }
 .llms-course-navigation .llms-course-nav .llms-lesson-preview > p {
 	display: none !important;
+}
+.llms-course-navigation .llms-lesson-preview, .llms-course-navigation .llms-lesson-preview:hover {
+	background: transparent;
+	border: 0 none;
+}
+.llms-lesson-preview section, .llms-lesson-preview section:hover {
+	background: transparent;
 }
 #menu-item-2022 {
     display: none !important;
@@ -741,6 +752,21 @@ ol.commentlist ul.children {
 ol.commentlist li::before {
 	display: none;
 }
+.logged-in .llms-sd-layout-columns {
+	display: block !important;
+}
+.llms-private-areas-list table th {
+	font-size: 2.5rem; 
+}
+footer.site-footer {
+	padding-top: 0;
+}
+#credits {
+	margin-top: 0;
+}
+.mod_note_wrapper ol li::before {
+	color: #fff; 
+}
     /* Small devices (576px and up). This is anything labeled "sm" in bootstrap. */
     @media (min-width: 576px) {
         
@@ -858,12 +884,12 @@ ol.commentlist li::before {
                     font-weight: 700;
                     text-decoration:none;
                     font-size: 20px;
-                    font-size: 2.0rem;
-                    padding: 0px 10px;
+                    font-size: 2.0rem; 
+                    padding: 10px 10px; 
                     text-transform: uppercase;
                 }
                 #footer_nav a:hover, #footer_nav a:active, #footer_nav a:focus, #footer_nav > ul > li.active > a {
-                    text-decoration:none;
+                    text-decoration:underline !important;
                 }
             }
 

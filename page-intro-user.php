@@ -14,7 +14,7 @@ get_header(); ?>
         <div class="row">
             <div class="col-md-12">
                 <h2>Sorry, you need to be logged in to view this page.</h2>	
-                <h4>Please login below.</h4>
+                <h3>Please login below.</h3>
                 <?php $login_form_args = array(
                     'echo'           => true,
                     'remember'       => true,
