@@ -30,7 +30,7 @@ get_header(); ?>
         <div class="row">
             <div class="col-md-12">
                 <h2>Sorry, you need to be logged in to view this page.</h2>	
-                <h4>Please login below.</h4>
+                <h3>Please login below.</h3>
                 <?php $login_form_args = array(
                     'echo'           => true,
                     'remember'       => true,
@@ -94,12 +94,12 @@ get_header(); ?>
 					<h2>Select the participant you wish to view data for:</h2>
 					<form method="post" id="adduser" action="<?php the_permalink(); ?>">
 						<select aria-expanded="false" class="volunteers-list" name="current_selected_user">
-							<?php if (($current_selected_user != 'none') || ($current_selected_user != '') || ($current_selected_user != '0')) { ?>
-							<option value="<?php $current_selected_user; ?>">Current Selected Participant: <?php echo $selected_display; ?></option>
-							<option value="none">View All</option>
+							<?php if (($current_selected_user == 'none') || ($current_selected_user == '') || ($current_selected_user == '0')) { ?>
+							<option value="0">Select User</option>
 							<option value="<?php echo $current_user->ID ?>">Myself</option>
 							<?php } else { ?>
-							<option value="0">Select User</option>
+							<option value="<?php $current_selected_user; ?>">Current Selected Participant: <?php echo $selected_display; ?></option>
+							<option value="none">View All</option>
 							<option value="<?php echo $current_user->ID ?>">Myself</option>
 							<?php } ?>
 							<?php foreach( $users as $user ): ?>
@@ -128,7 +128,38 @@ get_header(); ?>
 			</div>	
 		<?php } ?>
 			<div class="row">
-				<?php if (($current_selected_user != 'none') || ($current_selected_user != '') || ($current_selected_user != '0')) { ?>
+				<?php if (($current_selected_user == 'none') || ($current_selected_user == '') || ($current_selected_user == '0')) { ?>
+					<div class="col-md-12">
+					<h2>All User Data:</h2>
+					<div class="mod_graph_wrapper">
+						<div id="capture_one">
+							<?php //echo do_shortcode( '[frm-graph fields="332" type="bar" title="Sleep Efficiency" title_size="20" title_bold="1" title_color="#333" width="100%" y_title="Number of Entries" is_stacked="0" x_title="Sleep Efficiency Calculation" x_slanted_text="0" data_type="total"]' ); ?>
+							<?php echo do_shortcode( '[frm-graph fields="332" type="line" title="Sleep Efficiency" title_size="20" title_bold="1" title_color="#333" width="100%" x_title="Date of Entries" is_stacked="0" y_title="Sleep Efficiency Calculation" x_slanted_text="0" data_type="total" x_axis="240"]' ); ?>
+						</div>
+						<button class="btn-mayecreate center" onclick="download_one()">Download Sleep Efficiency Screenshot</button>
+						<div id="capture_two">
+							<?php //echo do_shortcode( '[frm-graph fields="224" type="bar" title="Sleep Onset Latency" title_size="20" title_bold="1" title_color="#333" width="100%" y_title="Number of Entries" is_stacked="0" x_title="Time to Fall Asleep" x_slanted_text="0" data_type="total"]' ); ?>
+							<?php echo do_shortcode( '[frm-graph fields="224" type="line" title="Sleep Onset Latency" title_size="20" title_bold="1" title_color="#333" width="100%" x_title="Date of Entries" is_stacked="0" y_title="Time to Fall Asleep" x_slanted_text="0" data_type="total" x_axis="240"]' ); ?>
+						</div>
+						<button class="btn-mayecreate center" onclick="download_two()">Download Sleep Onset Latency Screenshot</button>
+						<div id="capture_three">
+							<?php //echo do_shortcode( '[frm-graph fields="226" type="bar" title="Wake After Sleep Onset" title_size="20" title_bold="1" title_color="#333" width="100%" y_title="Number of Entries" is_stacked="0" x_title="Time Awake in the Middle of the Night" x_slanted_text="0" data_type="total"]' ); ?>
+							<?php echo do_shortcode( '[frm-graph fields="226" type="line" title="Wake After Sleep Onset" title_size="20" title_bold="1" title_color="#333" width="100%" x_title="Date of Entries" is_stacked="0" y_title="Time Awake in the Middle of the Night" x_slanted_text="0" data_type="total" x_axis="240"]' ); ?>
+						</div>
+						<button class="btn-mayecreate center" onclick="download_three()">Download Wake After Sleep Onset Screenshot</button>
+						<div id="capture_four">
+							<?php //echo do_shortcode( '[frm-graph fields="233" type="bar" title="Total Sleep Time" title_size="20" title_bold="1" title_color="#333" width="100%" y_title="Number of Entries" is_stacked="0" x_title="Total Time Asleep (Minutes)" x_slanted_text="0" data_type="total"]' ); ?>
+							<?php echo do_shortcode( '[frm-graph fields="233" type="line" title="Total Sleep Time" title_size="20" title_bold="1" title_color="#333" width="100%" x_title="Date of Entries" is_stacked="0" y_title="Total Time Asleep (Minutes)" x_slanted_text="0" data_type="total" x_axis="240"]' ); ?>
+						</div>
+						<button class="btn-mayecreate center" onclick="download_four()">Download Total Sleep Time Screenshot</button>
+						<div id="capture_five">
+							<?php //echo do_shortcode( '[frm-graph fields="235" type="bar" title="Sleep Quality Rating" title_size="20" title_bold="1" title_color="#333" width="100%" y_title="Number of Entries" is_stacked="0" x_title="Quality of Sleep Rating" x_slanted_text="0" data_type="total"]' ); ?>
+							<?php echo do_shortcode( '[frm-graph fields="235" type="line" title="Sleep Quality Rating" title_size="20" title_bold="1" title_color="#333" width="100%" x_title="Date of Entries" is_stacked="0" y_title="Quality of Sleep Rating" x_slanted_text="0" data_type="total" x_axis="240"]' ); ?>
+						</div>
+						<button class="btn-mayecreate center" onclick="download_five()">Download Sleep Quality Rating Screenshot</button>
+					</div>
+				</div>
+				<?php } else { ?>
 					<div class="col-md-12">
 					<h2>User Data for <?php echo $selected_display; ?>:</h2>
 					<div class="mod_graph_wrapper">
@@ -156,37 +187,6 @@ get_header(); ?>
 						<div id="capture_five">
 							<?php //echo do_shortcode( '[frm-graph fields="235" type="bar" title="Sleep Quality Rating" title_size="20" title_bold="1" title_color="#333" width="100%" y_title="Number of Entries" is_stacked="0" x_title="Quality of Sleep Rating" x_slanted_text="0" data_type="total" user_id="'.$current_selected_user.'"]' ); ?>
 							<?php echo do_shortcode( '[frm-graph fields="235" type="line" title="Sleep Quality Rating" title_size="20" title_bold="1" title_color="#333" width="100%" x_title="Date of Entries" is_stacked="0" y_title="Quality of Sleep Rating" x_slanted_text="0" data_type="total" x_axis="240" user_id="'.$current_selected_user.'"]' ); ?>
-						</div>
-						<button class="btn-mayecreate center" onclick="download_five()">Download Sleep Quality Rating Screenshot</button>
-					</div>
-				</div>
-				<?php } else { ?>
-					<div class="col-md-12">
-					<h2>All User Data:</h2>
-					<div class="mod_graph_wrapper">
-						<div id="capture_one">
-							<?php //echo do_shortcode( '[frm-graph fields="332" type="bar" title="Sleep Efficiency" title_size="20" title_bold="1" title_color="#333" width="100%" y_title="Number of Entries" is_stacked="0" x_title="Sleep Efficiency Calculation" x_slanted_text="0" data_type="total"]' ); ?>
-							<?php echo do_shortcode( '[frm-graph fields="332" type="line" title="Sleep Efficiency" title_size="20" title_bold="1" title_color="#333" width="100%" x_title="Date of Entries" is_stacked="0" y_title="Sleep Efficiency Calculation" x_slanted_text="0" data_type="total" x_axis="240"]' ); ?>
-						</div>
-						<button class="btn-mayecreate center" onclick="download_one()">Download Sleep Efficiency Screenshot</button>
-						<div id="capture_two">
-							<?php //echo do_shortcode( '[frm-graph fields="224" type="bar" title="Sleep Onset Latency" title_size="20" title_bold="1" title_color="#333" width="100%" y_title="Number of Entries" is_stacked="0" x_title="Time to Fall Asleep" x_slanted_text="0" data_type="total"]' ); ?>
-							<?php echo do_shortcode( '[frm-graph fields="224" type="line" title="Sleep Onset Latency" title_size="20" title_bold="1" title_color="#333" width="100%" x_title="Date of Entries" is_stacked="0" y_title="Time to Fall Asleep" x_slanted_text="0" data_type="total" x_axis="240"]' ); ?>
-						</div>
-						<button class="btn-mayecreate center" onclick="download_two()">Download Sleep Onset Latency Screenshot</button>
-						<div id="capture_three">
-							<?php //echo do_shortcode( '[frm-graph fields="226" type="bar" title="Wake After Sleep Onset" title_size="20" title_bold="1" title_color="#333" width="100%" y_title="Number of Entries" is_stacked="0" x_title="Time Awake in the Middle of the Night" x_slanted_text="0" data_type="total"]' ); ?>
-							<?php echo do_shortcode( '[frm-graph fields="226" type="line" title="Wake After Sleep Onset" title_size="20" title_bold="1" title_color="#333" width="100%" x_title="Date of Entries" is_stacked="0" y_title="Time Awake in the Middle of the Night" x_slanted_text="0" data_type="total" x_axis="240"]' ); ?>
-						</div>
-						<button class="btn-mayecreate center" onclick="download_three()">Download Wake After Sleep Onset Screenshot</button>
-						<div id="capture_four">
-							<?php //echo do_shortcode( '[frm-graph fields="233" type="bar" title="Total Sleep Time" title_size="20" title_bold="1" title_color="#333" width="100%" y_title="Number of Entries" is_stacked="0" x_title="Total Time Asleep (Minutes)" x_slanted_text="0" data_type="total"]' ); ?>
-							<?php echo do_shortcode( '[frm-graph fields="233" type="line" title="Total Sleep Time" title_size="20" title_bold="1" title_color="#333" width="100%" x_title="Date of Entries" is_stacked="0" y_title="Total Time Asleep (Minutes)" x_slanted_text="0" data_type="total" x_axis="240"]' ); ?>
-						</div>
-						<button class="btn-mayecreate center" onclick="download_four()">Download Total Sleep Time Screenshot</button>
-						<div id="capture_five">
-							<?php //echo do_shortcode( '[frm-graph fields="235" type="bar" title="Sleep Quality Rating" title_size="20" title_bold="1" title_color="#333" width="100%" y_title="Number of Entries" is_stacked="0" x_title="Quality of Sleep Rating" x_slanted_text="0" data_type="total"]' ); ?>
-							<?php echo do_shortcode( '[frm-graph fields="235" type="line" title="Sleep Quality Rating" title_size="20" title_bold="1" title_color="#333" width="100%" x_title="Date of Entries" is_stacked="0" y_title="Quality of Sleep Rating" x_slanted_text="0" data_type="total" x_axis="240"]' ); ?>
 						</div>
 						<button class="btn-mayecreate center" onclick="download_five()">Download Sleep Quality Rating Screenshot</button>
 					</div>

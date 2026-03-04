@@ -68,7 +68,6 @@ if ( ! $desc && is_llms_private_area() ) {
 echo $ga_tag;
 } ?>
 
-<div id="skip"><a href="#content">Skip to Main Content</a></div>
 
 </head>
 
@@ -84,6 +83,8 @@ echo $ga_tag;
 
 <div id="pagewrapper">
 <a id="top"></a>
+<header>
+<div id="skip"><a href="#content">Skip to Main Content</a></div>
 <?php $navbar_style_fixed = ('fixed' == get_field('navbar_style', 'option')); ?>
 <?php if ($navbar_style_fixed) {
 	$navbar_style = "fixed";
@@ -93,8 +94,8 @@ echo $ga_tag;
 <div id="navigation" class="<?php echo $navbar_style; ?>">
 	<?php get_template_part('partials/nav'); ?>	
 </div>	
-
-
+</header>
+<main id="content" aria-label="Site Content">
 <?php if (is_front_page()) { ?>
 		<div id="homeContentWrap">
 <?php } else { ?>
@@ -219,7 +220,7 @@ echo $ga_tag;
                 
 <?php } ?>
 
-<main id="content">
+
 <div id="page"> <!--Begin Page -->
 <div class="pagebreak_fix">
 <div class="hfeed site <?php echo $containerWidth; ?>">
