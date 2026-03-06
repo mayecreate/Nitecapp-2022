@@ -402,7 +402,7 @@ add_filter( 'llms_lesson_incomplete_user_id', 'my_llms_user_id' );
 **/
 function my_llms_discuss_role($role) {
 	
-	$role[] = 'instructors_assistant';
+	$role[] = 'limited-admin';
 	return $role;
 	
 }
@@ -437,10 +437,10 @@ add_action('admin_head', 'my_custom_fonts');
 
 function my_custom_fonts() {
   echo '<style>
-    .role-instructors_assistant .ab-top-menu li, .role-instructors_assistant #adminmenu > li, .role-instructors_assistant #poststuff #postexcerpt, .role-instructors_assistant #poststuff #authordiv, .role-instructors_assistant #poststuff #advanced-sortables {
+    .role-limited-admin .ab-top-menu li, .role-limited-admin #adminmenu > li, .role-limited-admin #poststuff #postexcerpt, .role-limited-admin #poststuff #authordiv, .role-limited-admin #poststuff #advanced-sortables {
       display:none !important;
     } 
-	.role-instructors_assistant .ab-top-menu li#wp-admin-bar-site-name, .role-instructors_assistant .ab-top-menu li#wp-admin-bar-my-account, .role-instructors_assistant  #adminmenu > li#menu-posts-llms_pa_post, .role-instructors_assistant  #adminmenu > li#menu-posts-course, .role-instructors_assistant  #adminmenu > li#menu-users, .role-instructors_assistant  #adminmenu > li#menu-dashboard {
+	.role-limited-admin .ab-top-menu li#wp-admin-bar-site-name, .role-limited-admin .ab-top-menu li#wp-admin-bar-my-account, .role-limited-admin  #adminmenu > li#menu-posts-llms_pa_post, .role-limited-admin  #adminmenu > li#menu-posts-course, .role-limited-admin  #adminmenu > li#menu-users, .role-limited-admin  #adminmenu > li#menu-dashboard {
 		display:block !important;
 	}
   </style>';
@@ -541,3 +541,16 @@ add_action('wp_head', function () {
 		update_user_meta($user_id, 'read_posts', $user_read_post);
 	}
  });
+
+//  add_action('init', 'cloneRole');
+
+// function cloneRole()
+// {
+//     global $wp_roles;
+//     if ( ! isset( $wp_roles ) )
+//         $wp_roles = new WP_Roles();
+
+//     $adm = $wp_roles->get_role('administrator');
+//     //Adding a 'new_role' with all admin caps
+//     $wp_roles->add_role('limited-admin', 'Limited Admin', $adm->capabilities);
+// }

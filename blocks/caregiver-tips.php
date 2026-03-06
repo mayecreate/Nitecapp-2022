@@ -1,4 +1,4 @@
-<?php if(current_user_can('care-giver') || current_user_can('administrator') || current_user_can('instructors_assistant')) { ?>
+<?php if(current_user_can('care-giver') || current_user_can('administrator') || current_user_can('limited-admin')) { ?>
 	<div class="mod_note_wrapper">
 		<?php $optional_title = esc_html(get_field("optional_title", $post->ID)); ?>
 		<?php $tip_content = get_field("tip_content", $post->ID); ?>

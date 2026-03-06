@@ -50,7 +50,7 @@ get_header(); ?>
                 <?php wp_login_form( $login_form_args ); ?> 
             </div>
         </div>
-	<?php } elseif(current_user_can('instructors_assistant') || current_user_can('administrator')) { ?>
+	<?php } elseif(current_user_can('limited-admin') || current_user_can('administrator')) { ?>
 		<?php
 		$users = get_field("related_user", 'user_'.$current_user->ID);
 		$current_selected_user = get_field("current_selected_user", 'user_'.$current_user->ID);
