@@ -433,18 +433,18 @@ function mc_role_admin_body_class( $classes ) {
 }
 add_filter( 'admin_body_class', 'mc_role_admin_body_class' );
 
-add_action('admin_head', 'my_custom_fonts');
+// add_action('admin_head', 'my_custom_fonts');
 
-function my_custom_fonts() {
-  echo '<style>
-    .role-limited-admin .ab-top-menu li, .role-limited-admin #adminmenu > li, .role-limited-admin #poststuff #postexcerpt, .role-limited-admin #poststuff #authordiv, .role-limited-admin #poststuff #advanced-sortables {
-      display:none !important;
-    } 
-	.role-limited-admin .ab-top-menu li#wp-admin-bar-site-name, .role-limited-admin .ab-top-menu li#wp-admin-bar-my-account, .role-limited-admin  #adminmenu > li#menu-posts-llms_pa_post, .role-limited-admin  #adminmenu > li#menu-posts-course, .role-limited-admin  #adminmenu > li#menu-users, .role-limited-admin  #adminmenu > li#menu-dashboard {
-		display:block !important;
-	}
-  </style>';
-}
+// function my_custom_fonts() {
+//   echo '<style>
+//     .role-limited-admin .ab-top-menu li, .role-limited-admin #adminmenu > li, .role-limited-admin #poststuff #postexcerpt, .role-limited-admin #poststuff #authordiv, .role-limited-admin #poststuff #advanced-sortables {
+//       display:none !important;
+//     } 
+// 	.role-limited-admin .ab-top-menu li#wp-admin-bar-site-name, .role-limited-admin .ab-top-menu li#wp-admin-bar-my-account, .role-limited-admin  #adminmenu > li#menu-posts-llms_pa_post, .role-limited-admin  #adminmenu > li#menu-posts-course, .role-limited-admin  #adminmenu > li#menu-users, .role-limited-admin  #adminmenu > li#menu-dashboard {
+// 		display:block !important;
+// 	}
+//   </style>';
+// }
 
 // remove dashicons
 function wpdocs_dequeue_dashicon() {
